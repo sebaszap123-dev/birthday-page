@@ -1,53 +1,83 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+
+const isMenuOpen = ref(false)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <!-- Navbar -->
-      <nav>
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/guests">Invitados</router-link></li>
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-4">
+        <div class="brand text-xl sm:text-2xl font-cursive text-primary">
+          Sebastian - <span class="text-tertiary">"Hacia las profundidades"</span>
+        </div>
+
+        <!-- Hamburger menu button -->
+        <button @click="toggleMenu" class="sm:hidden text-primary">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Desktop menu -->
+        <ul class="hidden sm:flex space-x-4">
+          <li>
+            <RouterLink to="/" class="text-primary hover:text-tertiary transition-colors"
+              >Home</RouterLink
+            >
+          </li>
+          <li>
+            <RouterLink to="/guests" class="text-primary hover:text-tertiary transition-colors"
+              >Invitados</RouterLink
+            >
+          </li>
         </ul>
-        <div class="brand">Sebastian - <span>"Hacia las profundidades"</span></div>
       </nav>
+
+      <!-- Mobile menu -->
+      <div v-if="isMenuOpen" class="sm:hidden">
+        <ul class="py-2">
+          <li class="py-2">
+            <RouterLink
+              @click="toggleMenu"
+              to="/"
+              class="block text-primary hover:text-tertiary transition-colors"
+              >Home</RouterLink
+            >
+          </li>
+          <li class="py-2">
+            <RouterLink
+              @click="toggleMenu"
+              to="/guests"
+              class="block text-primary hover:text-tertiary transition-colors"
+              >Invitados</RouterLink
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </header>
-
-  <RouterView />
+  <body>
+    <RouterView />
+  </body>
 </template>
 
 <style scoped>
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: rgb(255, 255, 255);
-}
-
-nav ul {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-}
-
-nav ul li {
-  margin-right: 1rem;
-}
-
-nav a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  font-size: 1.25rem;
-}
-
-.brand {
-  font-family: 'Dancing Script', cursive;
-  color: var(--special);
-  color: #000;
-  font-size: 1.5rem;
-}
+/* Estilos adicionales si son necesarios */
 </style>

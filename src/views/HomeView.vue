@@ -1,9 +1,13 @@
 <template>
   <div id="app" class="relative min-h-screen bg-primary">
     <!-- Home Section -->
-    <section id="home" class="fullscreen bg-[url('../assets/background.jpg')]">
-      <div class="content bg-white bg-opacity-80 p-8 rounded-lg">
-        <h1 class="text-4xl mb-4 text-tertiary font-cursive">Estás invitado a mi fiesta</h1>
+    <section id="home" class="fullscreen text-center items-center align-middle">
+      <div
+        class="content bg-white bg-opacity-80 p-6 sm:p-8 rounded-lg max-w-sm sm:max-w-md mx-auto"
+      >
+        <h1 class="text-3xl sm:text-4xl mb-4 text-tertiary font-cursive">
+          Estás invitado a mi fiesta
+        </h1>
         <p class="mb-6 text-primary">Trae regalo conchetumadre xD</p>
       </div>
     </section>
@@ -11,19 +15,13 @@
     <!-- Footer -->
     <footer class="fixed bottom-0 left-0 right-0 bg-primary text-white p-4">
       <div class="container mx-auto">
-        <table class="w-full text-sm border-collapse">
+        <table class="w-full text-sm border-collapse flex-row">
           <tr class="border-b border-secondary">
-            <th class="py-2 px-4 text-left text-secondary font-cursive text-xl">Location</th>
-            <th class="py-2 px-4 text-left text-secondary font-cursive text-xl">Date</th>
-            <th class="py-2 px-4 text-left text-secondary font-cursive text-xl">Time</th>
-            <th class="py-2 px-4" rowspan="2">
-              <button
-                @click="showConfirmation"
-                class="bg-tertiary hover:bg-secondary hover:text-primary text-white py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105"
-              >
-                Confirma tu asistencia
-              </button>
+            <th class="py-2 px-4 text-left text-secondary font-cursive text-lg sm:text-xl">
+              Location
             </th>
+            <th class="py-2 px-4 text-left text-secondary font-cursive text-lg sm:text-xl">Date</th>
+            <th class="py-2 px-4 text-left text-secondary font-cursive text-lg sm:text-xl">Time</th>
           </tr>
           <tr>
             <td class="py-2 px-4">Villa de alba 302,<br />Villa de alba</td>
@@ -34,6 +32,14 @@
             </td>
           </tr>
         </table>
+        <div class="flex justify-center mt-4">
+          <button
+            @click="showConfirmation"
+            class="bg-tertiary hover:bg-secondary hover:text-primary text-white py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            Asistencia
+          </button>
+        </div>
       </div>
     </footer>
   </div>
@@ -105,5 +111,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Add any component-specific styles here if needed */
+@media (max-width: 750px) {
+  table {
+    font-size: 0.75rem;
+  }
+}
 </style>
