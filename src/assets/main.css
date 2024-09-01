@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@300;400&display=swap');
+
+@layer base {
+    body {
+        @apply m-0 font-sans text-white;
+    }
+
+    #app {
+        @apply min-h-screen bg-primary;
+    }
+
+    .fullscreen {
+        @apply h-screen flex flex-col justify-center items-center text-center bg-cover bg-center;
+    }
+
+    h1,
+    h2 {
+        @apply font-cursive text-tertiary;
+    }
+
+    button {
+        @apply bg-tertiary text-white border-none py-2 px-4 text-base cursor-pointer transition-colors duration-300 hover:bg-secondary hover:text-primary;
+    }
+}
+
+@layer components {
+    /* Add any component styles here */
+}
+
+@layer utilities {
+    /* Add any custom utility classes here */
+}
