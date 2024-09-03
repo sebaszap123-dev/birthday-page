@@ -31,6 +31,8 @@
           </tr>
         </tbody>
       </table>
+      <p class="text-black mt-10 flex w-full justify-center">Invitados {{ guests.length }}</p>
+      <div class="mt-10 mb-10"></div>
     </div>
   </div>
 </template>
